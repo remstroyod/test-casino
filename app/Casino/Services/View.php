@@ -13,10 +13,10 @@ class View {
      * @param $args
      * @return void
      */
-    public function load($tpl, $args = []): void
+    public static function load($tpl, $args = []): void
     {
 
-        $template = $this->app($tpl, $args);
+        $template = self::app($tpl, $args);
 
         ob_start();
 
@@ -33,7 +33,7 @@ class View {
      * @param $tpl
      * @return false|string
      */
-    private function app($tpl, $args = []): bool|string
+    private static function app($tpl, $args = []): bool|string
     {
 
         extract($args);

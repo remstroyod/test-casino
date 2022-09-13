@@ -5,6 +5,9 @@ use Bramus\Router\Router;
 
 class Routing {
 
+    /**
+     * @var Router
+     */
     protected $router;
 
     public function __construct()
@@ -23,6 +26,7 @@ class Routing {
     {
 
         $this->router->setNamespace('Casino\\Controllers');
+
         $this->router->get('/', 'HomeController@index');
         $this->router->post('/register', 'UserController@store');
         $this->router->get('/user/(.*)', 'UserController@show');

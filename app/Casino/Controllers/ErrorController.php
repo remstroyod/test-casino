@@ -6,16 +6,9 @@ use Casino\Services\View;
 class ErrorController extends BaseController
 {
 
-    /**
-     * @var View
-     */
-    protected View $view;
-
     public function __construct()
     {
-
-        $this->view = new View();
-
+        //
     }
 
     /**
@@ -24,7 +17,7 @@ class ErrorController extends BaseController
     public function index()
     {
 
-        return $this->view->load('template/error');
+        return View::load('template/error');
 
     }
 

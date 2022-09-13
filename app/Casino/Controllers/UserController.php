@@ -22,17 +22,11 @@ class UserController extends BaseController
      */
     protected History $history;
 
-    /**
-     * @var View
-     */
-    protected View $view;
-
     public function __construct()
     {
 
         session_start();
 
-        $this->view = new View();
         $this->user = new User();
         $this->history = new History();
 
@@ -92,7 +86,7 @@ class UserController extends BaseController
         if( $this->checkDateLink($user['date']) )
         {
 
-            return $this->view->load('template/user', ['user' => (object) $user]);
+            return View::load('template/user', ['user' => (object) $user]);
 
         }else{
 

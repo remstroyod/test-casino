@@ -6,16 +6,9 @@ use Casino\Services\View;
 class HomeController extends BaseController
 {
 
-    /**
-     * @var View
-     */
-    protected View $view;
-
     public function __construct()
     {
-
-        $this->view = new View();
-
+        session_start();
     }
 
     /**
@@ -24,7 +17,7 @@ class HomeController extends BaseController
     public function index()
     {
 
-        return $this->view->load('template/home');
+        return View::load('template/home');
 
     }
 
