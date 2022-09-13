@@ -117,7 +117,7 @@ var User = {
 				"Content-Type": "application/x-www-form-urlencoded"
 			},
 			dataType: 'json',
-			method: 'GET',
+			method: 'POST',
 			complete: function()
 			{
 

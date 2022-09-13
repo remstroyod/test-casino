@@ -30,12 +30,12 @@ class Routing {
         $this->router->get('/404', 'ErrorController@index');
         $this->router->set404('ErrorController@index');
 
-        $this->router->get('/destroy/(\d+)', 'UserController@destroy');
+        $this->router->get('/destroy/{user}', 'UserController@destroy');
         $this->router->get('/update/(\d+)', 'UserController@update');
 
         $this->router->post('/spin/(\d+)', 'UserController@spin');
 
-        $this->router->get('/history/(\d+)', 'UserController@history');
+        $this->router->post('/history/(\d+)', 'UserController@history');
 
         $this->router->run();
 
