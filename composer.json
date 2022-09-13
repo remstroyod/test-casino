@@ -1,0 +1,21 @@
+{
+  "name": "vendor_name/casino.loc",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alex",
+      "email": "remstroyod@gmail.com"
+    }
+  ],
+  "require": {
+    "simplon/mysql": "*",
+    "bramus/router": "~1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Casino\\":"app/Casino"
+    }
+  }
+}

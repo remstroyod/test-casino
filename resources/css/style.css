@@ -1,0 +1,29 @@
+main {
+    padding: 100px 0;
+}
+.btn-block {
+    width: 100%;
+}
+.ajax {
+    min-height: 80px;
+}
+.ajax__result {
+    text-align: center;
+}
+.ajax__spinner {
+    display: none;
+    margin: 0 auto;
+}
+.ajax.preload .ajax__result {
+    display: none;
+}
+.ajax.preload .ajax__spinner {
+    display: flex;
+}
+
+.ajax__result h2 strong {
+    display: block;
+}
+.ajax__result h2 strong {
+    font-size: 32px;
+}
