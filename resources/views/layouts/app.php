@@ -36,8 +36,8 @@
 </div>
 <!-- End Main-->
 
-<script src="/resources/js/vendor/jquery.js"></script>
-<script src="/resources/js/vendor/bootstrap.min.js"></script>
+<script src="/resources/js/libs/jquery.js"></script>
+<script src="/resources/js/libs/bootstrap.min.js"></script>
 <script src="/resources/js/script.js"></script>
 
 </body>
