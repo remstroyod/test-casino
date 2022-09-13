@@ -1,7 +1,6 @@
 <?php
 namespace Casino\Controllers;
 
-use Casino\Models\User;
 use Casino\Services\View;
 
 class HomeController
@@ -25,11 +24,7 @@ class HomeController
     public function index()
     {
 
-
-        $user = new User();
-        $test = $user->getUser(1);
-
-        return $this->view->load('template/home', ['user' => $test]);
+        return $this->view->load('template/home');
 
     }
 
