@@ -7,7 +7,7 @@ use Casino\Services\View;
 use Casino\Traits\UserTrait;
 use DateTime;
 
-class UserController
+class UserController extends BaseController
 {
 
     use UserTrait;
@@ -15,17 +15,17 @@ class UserController
     /**
      * @var User
      */
-    protected $user;
+    protected User $user;
 
     /**
      * @var History
      */
-    protected $history;
+    protected History $history;
 
     /**
      * @var View
      */
-    protected $view;
+    protected View $view;
 
     public function __construct()
     {
@@ -48,7 +48,7 @@ class UserController
         {
 
             $_SESSION['error'] = 'Required fields not filled';
-            $this->redirect('/');
+            return $this->redirect('/');
 
         }
 
@@ -56,21 +56,21 @@ class UserController
         {
 
             $_SESSION['error'] = 'A user with this phone number is already registered';
-            $this->redirect('/');
+            return $this->redirect('/');
 
         }
 
         $user = $this->user->storeUser([
-            'name' => $_POST['name'],
+            'name'  => $_POST['name'],
             'phone' => $_POST['phone'],
-            'hash' => $this->generateHash(),
+            'hash'  => $this->generateHash(),
         ]);
 
         if( $user )
         {
 
             $user = $this->user->getUser($user);
-            $this->redirect('/user/' . $user['hash']);
+            return $this->redirect('/user/' . $user['hash']);
 
         }
 
@@ -87,7 +87,7 @@ class UserController
 
         $user = $this->user->getUserByHash($hash);
 
-        if( ! $user ) $this->redirect('/user');
+        if( ! $user ) return $this->redirect('/user');
 
         if( $this->checkDateLink($user['date']) )
         {
@@ -110,7 +110,7 @@ class UserController
     {
 
         $this->user->deleteUser($user);
-        $this->redirect('/');
+        return $this->redirect('/');
 
     }
 
@@ -130,7 +130,7 @@ class UserController
         {
 
             $user = $this->user->getUser($user);
-            $this->redirect('/user/' . $user['hash']);
+            return $this->redirect('/user/' . $user['hash']);
 
         }
 
@@ -140,7 +140,7 @@ class UserController
      * @param $user
      * @return void
      */
-    public function spin($user)
+    public function spin($user): void
     {
 
         $result = 0;
@@ -177,7 +177,7 @@ class UserController
      * @param $user
      * @return void
      */
-    public function history($user)
+    public function history($user): void
     {
 
         $histories = $this->history->getHistories($user);

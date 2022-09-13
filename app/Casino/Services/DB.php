@@ -31,7 +31,7 @@ class DB {
      * @return void
      * @throws \Exception
      */
-    private function conn()
+    private function conn(): void
     {
 
         try {

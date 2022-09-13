@@ -6,6 +6,9 @@ use Casino\Services\DB;
 class History extends DB
 {
 
+    /**
+     * @var string
+     */
     protected $table = 'history';
 
     /**
@@ -13,7 +16,7 @@ class History extends DB
      * @param array $data
      * @return mixed
      */
-    public function storeHistory(int $user, array $data = [])
+    public function storeHistory(int $user, array $data = []): mixed
     {
 
         if( $this->getHistoryCount($user) == 3 )
@@ -31,7 +34,7 @@ class History extends DB
      * @param int $user
      * @return void
      */
-    private function getHistoryCount(int $user)
+    private function getHistoryCount(int $user): int
     {
 
         $result = $this->dbConn->fetchRow('SELECT COUNT(id) as count FROM ' . $this->table . ' WHERE id_user = :id_user', ['id_user' => $user]);
@@ -44,7 +47,7 @@ class History extends DB
      * @param int $user
      * @return mixed
      */
-    private function destroyHistory(int $user)
+    private function destroyHistory(int $user): mixed
     {
 
         $result = $this->dbConn->fetchRow('SELECT id FROM ' . $this->table . ' WHERE id_user = :id_user ORDER BY id ASC LIMIT 1', ['id_user' => $user]);
@@ -62,7 +65,7 @@ class History extends DB
      * @param int $user
      * @return mixed
      */
-    public function getHistories(int $user)
+    public function getHistories(int $user): mixed
     {
 
         $result = $this->dbConn->fetchRowMany('SELECT * FROM ' . $this->table . ' WHERE id_user = :id_user', ['id_user' => $user]);

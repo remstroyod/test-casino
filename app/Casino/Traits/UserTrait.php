@@ -9,7 +9,7 @@ trait UserTrait
     /**
      * @return void
      */
-    public function generateHash()
+    public function generateHash(): string
     {
         $hash = date('U');
         $hash = hash('sha256', $hash . 'casino');
@@ -21,7 +21,7 @@ trait UserTrait
      * @param $date
      * @return bool
      */
-    public function checkDateLink($date)
+    public function checkDateLink($date): bool
     {
 
         $now = new DateTime();
@@ -38,7 +38,7 @@ trait UserTrait
      * @param $url
      * @return void
      */
-    public function redirect($url)
+    public function redirect($url): void
     {
         header('Location: ' . $url);
     }

@@ -6,13 +6,16 @@ use Casino\Services\DB;
 class User extends DB
 {
 
+    /**
+     * @var string
+     */
     protected $table = 'users';
 
     /**
      * @param int $id
      * @return mixed
      */
-    public function getUser(int $id)
+    public function getUser(int $id): mixed
     {
 
         $result = $this->dbConn->fetchRow('SELECT * FROM ' . $this->table . ' WHERE id = :id', ['id' => $id]);
@@ -25,7 +28,7 @@ class User extends DB
      * @param array $data
      * @return mixed
      */
-    public function storeUser(array $data)
+    public function storeUser(array $data): mixed
     {
 
         $id = $this->dbConn->insert($this->table, $data);
@@ -38,7 +41,7 @@ class User extends DB
      * @param string $phone
      * @return mixed
      */
-    public function getUserByPhone(string $phone)
+    public function getUserByPhone(string $phone): mixed
     {
 
         $result = $this->dbConn->fetchRow('SELECT * FROM ' . $this->table . ' WHERE phone = :phone', ['phone' => $phone]);
@@ -51,7 +54,7 @@ class User extends DB
      * @param string $hash
      * @return mixed
      */
-    public function getUserByHash(string $hash)
+    public function getUserByHash(string $hash): mixed
     {
 
         $result = $this->dbConn->fetchRow('SELECT * FROM ' . $this->table . ' WHERE hash = :hash', ['hash' => $hash]);
@@ -64,7 +67,7 @@ class User extends DB
      * @param int $id
      * @return mixed
      */
-    public function deleteUser(int $id)
+    public function deleteUser(int $id): mixed
     {
 
         $result = $this->dbConn->delete($this->table, ['id' => $id]);
@@ -78,7 +81,7 @@ class User extends DB
      * @param array $data
      * @return mixed
      */
-    public function updateUser(array $id = [], array $data = [])
+    public function updateUser(array $id = [], array $data = []): mixed
     {
 
         $result = $this->dbConn->update($this->table, $id, $data);

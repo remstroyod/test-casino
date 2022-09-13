@@ -19,7 +19,7 @@ class Routing {
      * @return void
      * @throws \Exception
      */
-    private function routes()
+    private function routes(): void
     {
 
         $this->router->setNamespace('Casino\\Controllers');

@@ -3,13 +3,13 @@ namespace Casino\Controllers;
 
 use Casino\Services\View;
 
-class HomeController
+class HomeController extends BaseController
 {
 
     /**
      * @var View
      */
-    protected $view;
+    protected View $view;
 
     public function __construct()
     {
